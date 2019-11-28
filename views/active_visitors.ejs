@@ -6,7 +6,16 @@
     <body>
         <%- include partials/header.ejs %>
         <div>
-                <%=data%>
+            <div class="mx-5 my-5" style=" width: 400px;height: 300px;">
+                <form action="/visitors/active" method="POST">
+                <div class="form-group">
+                    <label class="display-4" for="selectRole">Thanks for Visiting</label>
+                    <small id="roleHelp" class="form-text text-muted">Let's get you out.</small>
+                    <input type="text"  name="visitor_name" class="form-control" id="userType" aria-describedby="roleHelp" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

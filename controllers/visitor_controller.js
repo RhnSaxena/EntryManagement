@@ -29,9 +29,24 @@ exports.submit_form=function(req, res, next){
 }
 
 exports.get_active_visitors=function(req, res, next){
+    res.render('./active_visitors',{"title":"Visitor"}) ;
+}
+
+exports.update_checkout=function(req, res, next){
     var dataObject;
     let fetch_db=require('../controllers/populate_active_visitors');
     fetch_db.asyncFind((err, data)=>{
-        res.render('./active_visitors',{"title":"Visitor",data:data})   
+        console.log(req);
+        res.render('./visitor_checkout',{"title":"Visitor",data:data, req_name:req.body.visitor_name})   
+    })
+}
+
+exports.checkout=function(req, res, next){
+    let fetch_db=require('../controllers/populate_active_visitors');
+    fetch_db.asyncFind((err, data)=>{
+        console.log(req);
+        
+
+        res.render('./visitor_checkout',{"title":"Visitor",data:data, req_name:req.body.visitor_name})   
     })
 }

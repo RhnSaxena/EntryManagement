@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+    </head>
+    <body>
+        <%- include partials/header.ejs %>
+        <div>
+            <div class="mx-auto my-3" style="padding: 15px;">
+                <div><h3>Active Visitors</h3></div>
+            <table class="table table-striped my-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% data.forEach(function(visitor){ %>
+                    
+                    <% if(req_name==visitor.name){ %>
+                        <tr>
+                                <th scope="row"><%= visitor.name %></th>
+                                <td><%= visitor.email %></td>
+                                <td>
+                            <form action="/visitor/checkout" method="POST">
+                                <input value="<%=visitor._id%>" name="host_id" hidden>
+                                <button type="submit" class="btn btn-primary">Check Out
+                                </button>
+                            </form>
+                                </td>
+                            </tr>
+                    
+                    
+                    <% }}) %>
+                </tbody>
+            </div>
+        </div>
+    </body>
+</html>

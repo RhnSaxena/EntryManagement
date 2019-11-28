@@ -6,4 +6,11 @@ let role=require('../controllers/visitor_controller');
 router.get('/',role.get_activity);
 router.post('/',role.submit_form);
 router.get('/active',role.get_active_visitors);
+router.post('/active',role.update_checkout);
+
+
+
+router.post('/checkout',role.checkout);
+
+
 module.exports = router;
