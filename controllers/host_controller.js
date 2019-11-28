@@ -18,4 +18,5 @@ exports.submit_form=function(req, res, next){
       console.log(data);
     }
   })
+  res.render('host_submission', { title: 'Hosts Registered'});
 }
