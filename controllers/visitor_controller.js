@@ -1,7 +1,11 @@
 let Visitor = require('../models/visitors');
 
 exports.get_activity=function(req, res, next){
-    res.render('visitor_view', { title: 'Visitor' });
+    var dataObject;
+    let fetch_db=require('../controllers/populate_hostlist');
+    fetch_db.asyncFind((err, data)=>{
+        res.render('./partials/visitor_form',{"title":"Visitor",data:data})   
+    })
 }
 
 exports.submit_form=function(req, res, next){

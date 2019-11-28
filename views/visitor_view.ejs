@@ -19,14 +19,14 @@
 
               <label for="Visitor_Host">Host Name</label>
               <select type="text"  name="vh_name" class="form-control" id="visitor_host" aria-describedby="roleHelp" required>
-                  <option value="books">Books</option>
-                  <option value="html">HTML</option>
-                  <option value="css">CSS</option>
-                  <option value="php">PHP</option>
-                  <option value="js">JavaScript</option>
+                <%data.forEach( function (name){%>
+                  <option value="<%=name.id%>"><%=name.name%></option>
+                <%})%>
+                
+
                 </select>
 
-              <input type="text"  name="vh_name" class="form-control" id="visitor_host" aria-describedby="roleHelp" required>
+              <!-- <input type="text"  name="vh_name" class="form-control" id="visitor_host" aria-describedby="roleHelp" required> -->
 
               <label for="Visitor_Phno">Contact Number</label>
               <input type="tel"  name="v_phno" class="form-control" id="visitor_phno" aria-describedby="roleHelp" required>
