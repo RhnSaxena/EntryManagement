@@ -6,12 +6,15 @@
     <body>
         <%- include partials/header.ejs %>
         <div>
-            <div class="mx-5 my-5" style=" width: 400px;height: 300px;">
+            <div class="mx-auto my-5" style=" width: 500px;height: 300px;">
                 <form action="/visitors/active" method="POST">
                 <div class="form-group">
                     <label class="display-4" for="selectRole">Thanks for Visiting</label>
-                    <small id="roleHelp" class="form-text text-muted">Let's get you out.</small>
-                    <input type="text"  name="visitor_name" class="form-control" id="userType" aria-describedby="roleHelp" required>
+                    <div class="form-group" style="margin-left:30px ;">
+                        <small id="roleHelp" class="form-text text-muted">Let's get you out.</small>
+                        <input type="text"  name="visitor_name" class="form-control" id="userType"  aria-describedby="roleHelp" >
+                    </div>
+                    
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

@@ -20,7 +20,7 @@
                 <tbody>
                 <% data.forEach(function(visitor){ %>
                     
-                    <% if(req_name==visitor.name){ %>
+                    <% if(req_name==visitor.name || req_name=='NA'){ %>
                         <tr>
                                 <th scope="row"><%= visitor.name %></th>
                                 <td><%= visitor.email %></td>

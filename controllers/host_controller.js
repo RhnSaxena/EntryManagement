@@ -18,5 +18,8 @@ exports.submit_form=function(req, res, next){
       console.log(data);
     }
   })
-  res.render('host_submission', { title: 'Hosts Registered'});
+  res.render('submission', { 
+    title: 'Hosts Registered',
+    content: 'The Visitor has been successfully registered.'
+  });
 }
