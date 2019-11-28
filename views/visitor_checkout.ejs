@@ -13,6 +13,8 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email Address</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,9 +24,11 @@
                         <tr>
                                 <th scope="row"><%= visitor.name %></th>
                                 <td><%= visitor.email %></td>
+                                <td><%= visitor.phoneno %></td>
                                 <td>
-                            <form action="/visitor/checkout" method="POST">
+                            <form action="/visitors/checkout" method="POST">
                                 <input value="<%=visitor._id%>" name="host_id" hidden>
+                                <%=visitor._id%>
                                 <button type="submit" class="btn btn-primary">Check Out
                                 </button>
                             </form>

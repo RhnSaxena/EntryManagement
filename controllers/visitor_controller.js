@@ -32,21 +32,16 @@ exports.get_active_visitors=function(req, res, next){
     res.render('./active_visitors',{"title":"Visitor"}) ;
 }
 
-exports.update_checkout=function(req, res, next){
-    var dataObject;
+exports.get_by_name=function(req, res, next){
     let fetch_db=require('../controllers/populate_active_visitors');
     fetch_db.asyncFind((err, data)=>{
-        console.log(req);
-        res.render('./visitor_checkout',{"title":"Visitor",data:data, req_name:req.body.visitor_name})   
+        res.render('./visitor_checkout',{"title":"Visitor",data:data, req_name:req.body.visitor_name});   
     })
 }
 
 exports.checkout=function(req, res, next){
-    let fetch_db=require('../controllers/populate_active_visitors');
-    fetch_db.asyncFind((err, data)=>{
-        console.log(req);
-        
-
-        res.render('./visitor_checkout',{"title":"Visitor",data:data, req_name:req.body.visitor_name})   
+    let fetch_db=require('../controllers/visitorbyID');
+    fetch_db.asyncFind(req.body.host_id,(err, data)=>{
+        res.send({"title":"Visitor",data:data, req_name:req.body.visitor_name})  ;
     })
 }
