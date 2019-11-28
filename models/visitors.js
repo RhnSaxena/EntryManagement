@@ -21,7 +21,7 @@ let visitorSchema = mongoose.Schema({
     },
     check_out : {
         type : Date,
-        required : true
+        required : false
     },
     host_id : {
         type : String,
