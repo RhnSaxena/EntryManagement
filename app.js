@@ -1,6 +1,23 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const mongoose = require('mongoose');
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+mongoose.connect('mongodb://localhost:27017/summergeeks');
+let db =mongoose.connection;
+
+// Check Connection
+
+db.once('open', function(){
+  console.log('Connected to MongoDB');
+}); 
+
+db.on('error', function(err){
+  console.log(err);
+});
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
@@ -9,6 +26,12 @@ var hostRouter = require('./routes/host_routes');
 var visitorRouter = require('./routes/visitor_routes');
 
 var app = express();
+
+// Bring in models
+
+let Visitor = require('./models/visitors');
+let Host = require('./models/hosts');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

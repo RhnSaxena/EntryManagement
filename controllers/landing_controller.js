@@ -9,5 +9,4 @@ exports.redirect=function(req, res, next) {
   }else{
     res.redirect('/visitors');
   }
-  res.redirect('/');
 };
