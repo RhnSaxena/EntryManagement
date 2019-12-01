@@ -5,9 +5,9 @@ The project has been developed as an assignment for applying for the opportunity
 The platform with the APIs credentials has been deployed on Heroku along with the database hosted on Mlabs.<br>
 Check it out <a href="https://em-summergeeks.herokuapp.com/">here. </a>
 
-#Getting Started
+# Getting Started
 
-##Install
+## Install
 
 - Clone the repository.
 - Make sure that Node.js is properly installed.
@@ -17,12 +17,12 @@ Check it out <a href="https://em-summergeeks.herokuapp.com/">here. </a>
 - run `npm install `.
 - run `npm start `
 
-##Approach
+## Approach
 
 ### Node.js
 The project has been developed on Node.js .
 
-###Database
+### Database
 MongoDB has been used as the database which stores JSON-like documents that can have varied structure. In the deployed version, the databse is deployed on MLabs.
 ### Code Structure
 **Modularity**<br>The project is coded as modules so as to make it scalable and remove unneccesary redundancies.
@@ -39,4 +39,4 @@ The views for the project are prepared with the aim to reuse them as much as pos
 For eg., the submission page is same for many operations such as Registering the host, Visitor Checkout, Registering the visitor etc. 
 However, each time the page will be rendered differently as per the need of the operation.
 
-###End
+### End
