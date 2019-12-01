@@ -7,9 +7,6 @@ router.get('/',role.get_activity);
 router.post('/',role.submit_form);
 router.get('/active',role.get_active_visitors);
 router.post('/active',role.get_by_name);
-
-
-
 router.post('/checkout',role.checkout);
 
 

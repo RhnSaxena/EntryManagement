@@ -1,4 +1,5 @@
 let Visitor = require('../models/visitors');
+let hostmailer = require('./hostmailer');
 
 exports.get_activity=function(req, res, next){
     var dataObject;
@@ -22,9 +23,17 @@ exports.submit_form=function(req, res, next){
         if(err){
             console.log(err);
         }else{
-            console.log(data);
+            // console.log(data);
+            hostmailer.sendMail(req,(err)=>{
+                if(err){
+                    console.log("Error while sending mail");
+                }else{
+                    console.log("Mail Sent");
+                }
+            });
         }
     })
+
     res.render('submission', { 
         title: 'Visitor Registered',
         content: 'Your appointment has been successfully booked.'
@@ -47,9 +56,14 @@ exports.get_by_name=function(req, res, next){
 }
 
 exports.checkout=function(req, res, next){
-    let fetch_db=require('../controllers/visitorbyID');
-    fetch_db.asyncFind(req.body.host_id,(err, data)=>{
-        res.render('./submission.ejs',{title:"Visitor",
-        content:"You have been checked out successfully.\nHave a nice day."})  ;
+    let visitorCheckout=require('./visitorCheckout');
+    var visitor_id = req.body.visitor_id;
+    visitorCheckout.updateCheckOut(visitor_id, (err, data)=>{
+        if(err){
+            console.log(err);
+        }else{            
+            res.render('./submission.ejs',{title:"Visitor",
+            content:"You have been checked out successfully.\nHave a nice day."})  ;
+        }
     })
 }

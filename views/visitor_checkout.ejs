@@ -18,8 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <% data.forEach(function(visitor){ %>
-                    
+                <% data.forEach(function(visitor){ %>  
                     <% if(req_name==visitor.name || req_name=='NA'){ %>
                         <tr>
                                 <th scope="row"><%= visitor.name %></th>
@@ -27,15 +26,12 @@
                                 <td><%= visitor.phoneno %></td>
                                 <td>
                             <form action="/visitors/checkout" method="POST">
-                                <input value="<%=visitor._id%>" name="host_id" hidden>
-                                <%=visitor._id%>
+                                <input value="<%=visitor._id%>" name="visitor_id" hidden>
                                 <button type="submit" class="btn btn-primary">Check Out
                                 </button>
                             </form>
                                 </td>
                             </tr>
-                    
-                    
                     <% }}) %>
                 </tbody>
             </div>

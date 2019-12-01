@@ -11,6 +11,7 @@ exports.submit_form=function(req, res, next){
     address: req.body.h_address,
     phoneno: req.body.h_phno
   };
+
   Host.create(newHost,(err,data)=>{
     if(err){
       console.log(err);
