@@ -1,15 +1,15 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+// Import Mongoose
 const mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-// Enter the MongoDB url 
-mongoose.connect('mongodb_address');
-
+// Replace the parameter with the URL of your MongoDB database server.
+mongoose.connect('Enter-Your-URL');
 let db =mongoose.connection;
 
 // Check Connection
@@ -24,6 +24,7 @@ db.on('error', function(err){
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Setting Routers for the app
 var indexRouter = require('./routes/index_routes');
 var hostRouter = require('./routes/host_routes');
 var visitorRouter = require('./routes/visitor_routes');
@@ -45,7 +46,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 app.use('/hosts', hostRouter);
 app.use('/visitors', visitorRouter);
