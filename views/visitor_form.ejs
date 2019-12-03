@@ -3,54 +3,56 @@
   <head>
     <title><%= title %></title>
   </head>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link rel="stylesheet" href="/stylesheets/form.css">
-<body>
-    <%- include ./partials/header.ejs %>
-    <div>
-        <div class="mx-auto my-5" style=" width: 800px;height: 300px;">
-
-            <form id="regForm" action="/visitors" method="POST">
-                <h2>Book an Appointment</h2>
-                <!-- One "tab" for each step in the form: -->
-                
-                <small id="roleHelp" class="form-text text-muted">Please help us with the details.</small>
-                <div class="form-group my-3">
-
-                    <div class="tab">
-                        <label for="Visitor_Name">Name</label>
-                        <input type="text"  name="v_name" class="form-control" id="visitor_name" aria-describedby="roleHelp" required>
-                       
-                        <label for="Visitor_Email">Email ID</label>
-                        <input type="email"  name="v_email" class="form-control" id="visitor_email" aria-describedby="roleHelp" required>
-                       
-                        <label for="Visitor_Phno">Contact Number</label>
-                        <input type="tel"  name="v_phno" class="form-control" id="visitor_phno" aria-describedby="roleHelp" required>
-                    </div>
-                    <div class="tab">
-                        <label for="Visitor_Host">Host Name</label>
-                        <select type="text"  name="vh_name" class="form-control" id="visitor_host" aria-describedby="roleHelp" required>
-                            <%data.forEach( function (name){%>
-                            <option value="<%=name.id%>"><%=name.name%></option>
-                            <%})%>
-                        </select>
-                    </div>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/form.css">
+    <body>
+        <!-- To include the header / navbar on the page. -->
+        <%- include ./partials/header.ejs %>
+        <div class="container">
+                <div class="card mx-auto" style=" margin-top:7%;">
+                    <div class="mx-auto my-5" >
+                        <!-- Form to capture the visitor details from the user. -->
+                        <form id="regForm" action="/visitors" method="POST">
+                            <h2 class="form-text">Book an Appointment</h2>                        
+                            <small id="roleHelp" class="form-text text-muted">Please help us with the details.</small>
+                            <div class="form-group my-3">
+                            <!-- One "tab" for each step in the form: -->
+                                <div class="tab">
+                                    <label for="Visitor_Name">Name</label>
+                                    <input type="text"  name="v_name" class="form-control" id="visitor_name"  required>
+                                
+                                    <label for="Visitor_Email">Email ID</label>
+                                    <input type="email"  name="v_email" class="form-control" id="visitor_email"  required>
+                                
+                                    <label for="Visitor_Phno">Contact Number</label>
+                                    <input type="tel"  name="v_phno" class="form-control" id="visitor_phno" required>
+                                </div>
+                                <div class="tab">
+                                    <label for="Visitor_Host">Host Name</label>
+                                    <select type="text"  name="vh_name" class="form-control" id="visitor_host" required>
+                                        <!-- Using For loop to display the Host Names as dropdown.  -->
+                                        <%data.forEach( function (name){%>
+                                        <option value="<%=name.id%>"><%=name.name%></option>
+                                        <%})%>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="overflow:auto;">
+                                <div style="float:right;">
+                                    <button type="button" id="prevBtn" class="button btn btn-primary" onclick="nextPrev(-1)">Previous</button>
+                                    <button type="button" id="nextBtn" class="button btn btn-primary" onclick="nextPrev(1)">Next</button>
+                                </div>
+                            </div>
+                            <!-- Circles which indicates the steps of the form: -->
+                            <div style="text-align:center;margin-top:40px;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                        </form>
                 </div>
-                <div style="overflow:auto;">
-                    <div style="float:right;">
-                        <button type="button" id="prevBtn" class="button" onclick="nextPrev(-1)">Previous</button>
-                        <button type="button" id="nextBtn" class="button" onclick="nextPrev(1)">Next</button>
-                    </div>
-                </div>
-                <!-- Circles which indicates the steps of the form: -->
-                <div style="text-align:center;margin-top:40px;">
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-    <%- include ./partials/step_form.ejs %>
-
-</body>
+        <!-- To include the script to validate the form. -->
+        <%- include ./partials/visitor_form_validation.ejs %>
+    </body>
 </html>

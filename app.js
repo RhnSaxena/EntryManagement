@@ -6,10 +6,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-
-// Enter the MongoDB url 
-mongoose.connect('mongodb_address');
-
+mongoose.connect('mongodb://rohan:admin123@ds018839.mlab.com:18839/summergeeks');
 let db =mongoose.connection;
 
 // Check Connection

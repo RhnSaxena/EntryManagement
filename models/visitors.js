@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 
-//Schema for VIsitor
+//Schema for Visitor
 
 let visitorSchema = mongoose.Schema({
     name : {

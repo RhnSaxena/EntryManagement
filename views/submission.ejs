@@ -1,13 +1,23 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- To diplay the Title of the page -->
+    <!-- The title must have been passed as an arguement while rendering the page -->
     <title><%= title %></title>
   </head>
   <body>
+    <!-- To include the header/navbar on the page -->
     <%- include partials/header.ejs %>
-    <div>
-      <div class="mx-auto my-5" style=" width: 700px;height: 700px;">
-        <h1><%= content %></h1>
+    <div class="container">
+        <div class="card mx-auto container" style="width: 70%; margin-top:15%;">
+          <div class="mx-auto my-5">
+            <!-- To diplay the content on the page -->
+            <!-- The content must have been passed as an arguement while rendering the page -->
+            <h1><%= content %></h1>        
+          </div>
+          <div class="mx-auto">
+            <a  class="btn btn-primary mx-auto" href="/"><img src="/images/home.png" style="height: 50%;width: 50%;"></a>
+          </div>
       </div>
     </div>
   </body>

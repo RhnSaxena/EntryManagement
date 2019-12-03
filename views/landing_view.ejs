@@ -4,25 +4,32 @@
     <title>Welcome</title>
   </head>
   <body>
+
+    <!-- Include the navbar in the page -->
     <%- include partials/header.ejs %>
     <div>
-      
-      <div class="mx-5 my-5" style=" width: 300px;height: 300px;">
-        <form action="/" method="POST">
-          <div class="form-group">
-            <label class="display-4" for="selectRole">Welcome</label>
-            <small id="roleHelp" class="form-text text-muted">Let's get you started.</small>
-            <select type="text"  name="userType" class="form-control" id="userType" aria-describedby="roleHelp" required>
-              <option value="Visitor">Visitor</option>
-              <option value="Host">Host</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <form action="/visitors/active" method="GET">
-          <p>Already Checked In? <a href="/visitors/active">Check out here</a> </p>
-        </form>
-      </div>
+      <div class="card mx-auto " style="width: 60%; margin-top:7%;">
+          <div class="mx-auto my-5">
+
+            <!-- A form to decide the role of the user -->
+              <form action="/" method="POST">
+                <div class="form-group mx-auto">
+                  <label class="display-4" for="selectRole">Welcome</label>
+                  <small id="roleHelp" class="form-text text-muted my-4">Select a role for yourself.</small>
+                  <select type="text" name="userType" class="form-control" id="userType" style="width: 70%;" aria-describedby="roleHelp" required>
+                    <option value="Visitor">Visitor</option>
+                    <option value="Host">Host</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+              <!-- If the visitor wants to checkout, he can click the checkout link -->
+              <div>
+                <p class="my-2">Already Checked In? <a href="/visitors/active"><br>Check out here</a> </p>
+              </div>
+            </div>
+        </div>      
     </div>
   </body>
 </html>
