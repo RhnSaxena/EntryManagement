@@ -4,23 +4,20 @@
         <title><%= title %></title>
     </head>
     <body>
-        <!-- To include the navbar/header on the page -->
         <%- include partials/header.ejs %>
-        <div class="container">
-            <div class="card mx-auto " style="width: 60%; margin-top:7%;">
-                <div class="mx-auto my-5">
-                    <!-- To get the name of the visitor to search. -->
-                    <form action="/visitors/active" method="POST">
-                        <div class="form-group">
-                            <label class="display-4" for="selectRole">Thanks for Visiting</label>
-                            <div class="form-group" style="margin-left:30px; margin-right:30px;">
-                                <small id="roleHelp" class="form-text text-muted">Let's get you out.</small>
-                                <input type="text"  name="visitor_name" class="form-control" id="userType">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="margin-left: 30px;">Submit</button>
-                    </form>
+        <div>
+            <div class="mx-auto my-5" style=" width: 500px;height: 300px;">
+                <form action="/visitors/active" method="POST">
+                <div class="form-group">
+                    <label class="display-4" for="selectRole">Thanks for Visiting</label>
+                    <div class="form-group" style="margin-left:30px ;">
+                        <small id="roleHelp" class="form-text text-muted">Let's get you out.</small>
+                        <input type="text"  name="visitor_name" class="form-control" id="userType"  aria-describedby="roleHelp" >
+                    </div>
+                    
                 </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </body>
