@@ -1,9 +1,6 @@
-# Office Entry Management Portal
+# EntryX : The Office Entry Management Portal
 
-The project has been developed as an assignment for applying for the opportunity for the SDE Intern position at Innovaccer.
-
-The platform with the APIs credentials has been deployed on Heroku along with the database hosted on Mlabs.<br>
-Check it out <a href="https://em-summergeeks.herokuapp.com/">here. </a>
+EntryX is a platform developed to ease the process of managing visitors and keeping track of people entering or leaving the premises. It helps to book appointments with any employee or resident already present in the premises, along with email notifications. 
 
 # Getting Started
 
